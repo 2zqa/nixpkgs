@@ -50,7 +50,11 @@ appimageTools.wrapType2 {
     })
   ];
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version-regex=^v(\\d+\\.\\d+\\.\\d+)$"
+    ];
+  };
 
   meta = {
     mainProgram = "simplenote";
